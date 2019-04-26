@@ -1,0 +1,35 @@
+<!DOCTYPE >
+<html >
+<head>
+<link rel="stylesheet" type="text/css" href="lcss.css" />
+<script language= "JavaScript">
+        function validate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username == null || username == "") {
+                alert("Please enter the username.");
+            }
+            if (password == null || password == "") {
+                alert("Please enter the password.");
+                return false;
+            }
+            
+        } 
+</script>
+<title>Login Page</title>
+</head>
+<body>
+<div class="test">
+<form action="Myjsp.jsp" method="get">
+<div class="login">
+  <input class="field" type="text" placeholder="Username" id="username" name="username">  
+  <input class="field" type="password" placeholder="Password" id="password" name="password">  
+  <input class="btn" type="submit" value="LOGIN" onclick="validate();">
+  <a href="Register.html" class="forgot">Register</a> | 
+  <a href="#" class="forgot">Forgot password?</a>
+</div>
+</form>
+</div>
+</body>
+</html>
+

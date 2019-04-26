@@ -1,0 +1,56 @@
+<html>
+<script src="./angular.min.js"></script>
+<style>
+table,td{
+border:2px solid black;
+padding:10px;
+cellspacing:15px;
+borderspacing:7px;
+}
+td:hover {background-color:"pink";}
+input[type="text"],input[type="password"]{
+display:inline-block;
+margin:10px;
+width:80%;
+padding:5px;
+background:"pink";
+}
+#b{
+font-size:20px;
+font-weight:bold;
+font-color:"black";
+border:5px;
+}
+</style>
+
+<center>
+     <head>
+	 <h2>REGISTRATION</h2>
+	 </head>
+	 <body ng-app="" ng-init="mycol='lightblue'">
+	 <form action="" name="myform" method="post">
+	   
+	   <table>
+	   <tr>
+	   <td><span><h3>USER</h3></td><td><input type="text" placeholder="enter the user name" name="name" ng-model="name" required style="background-color:{{mycol}}"><br>
+	   <span ng-show="myform.name.$touched && myform.name.$invalid"><font color=red>THE NAME IS REQUIRED</font></span></span><br></td>
+	   </tr>
+	   
+	   <tr>
+	   <td><span><h3>PASSWORD</h3></td><td><input type="text" placeholder="enter the password" name="pass" ng-model="pass" required style="background-color:{{mycol}}"><br>
+       <span ng-show="myform.pass.$touched && myform.pass.$invalid"><font color=red>THE PASSWORD IS REQUIRED</font></span></span><br></td>
+	   </tr>
+	   
+	   </table>
+	   <br>
+	   <span>
+	   <h3> <input type="submit" value="SAVE" id="b" ng-disabled="myform.name.$invalid && myform.pass.$invalid"></h3><br>
+	   
+	   <h2>HELLO,{{name}}</h2>
+	   <span></span></span>
+	 </form>
+	 </body>
+	 
+</center>
+
+</html>

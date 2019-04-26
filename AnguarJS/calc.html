@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script src="angular.min.js"></script>
+	<script src="jquery.min.js"></script>
+</head>
+<body ng-app="calculator">
+<h3>Simple calculator</h3>
+<div ng-controller="calcController">
+<form>
+	<input type="number" id="num1" ng-model="numOne" value="0" />
+	<input type="number" id="num2" ng-model="numTwo" value="0" /><br>
+	<input type="radio" value="+" ng-model="operator" selected>+<br>
+	<input type="radio" value="-" ng-model="operator"/>-<br>
+	<input type="radio" value="*" ng-model="operator"/>*<br>
+	<input type="radio" value="/" ng-model="operator"/>/<br>
+ 
+</form>
+{{numOne}}{{operator}}{{numTwo}}={{calculate(operator)}}
+</div>
+<script>
+	var app = angular.module('calculator',[]);
+	app.controller('calcController',function($scope){
+		$scope.numOne=0;
+		$scope.numTwo=0;
+		$scope.operator='+';
+		$scope.calculate = function(optr){
+			switch(optr){
+				case '+':
+				return parseFloat($scope.numOne)+parseFloat($scope.numTwo);
+				break;
+				
+				case '-':
+				return parseFloat($scope.numOne)-parseFloat($scope.numTwo);
+				break;
+				
+				case '*':
+				return parseFloat($scope.numOne)*parseFloat($scope.numTwo);
+				break;
+				
+				case '/':
+				return parseFloat($scope.numOne)/parseFloat($scope.numTwo);
+				break;
+			}
+		
+		
+		}
+	
+	
+	
+	});
+	
+
+</script>
+
+
+
+</body>
+
+
+</html>
+

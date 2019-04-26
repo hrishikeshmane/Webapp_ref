@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"-->
+<body>
+<style type="text/css">
+	.w3-card-211{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+	.w3-margin11{margin:16px}
+	.w3-button11{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+	.w3-padding11{padding:8px 16px}
+	.w3-padding-1611{padding-top:16px;padding-bottom:16px}
+	.w3-green11{color:#fff;background-color:#4CAF50}
+	.w3-input11{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
+	.w3-border11{border:1px solid #ccc}
+	.w3-col11{float:left;width:100%}
+	.w3-container11{padding:0.01em 16px}
+	.w3-margin-top11{margin-top:16px}
+	.w3-light-grey11{color:#001;background-color:#f1f1f1}
+	.w3-margin-right11{margin-right:16px}
+	.w3-right11{float:right}
+	h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}
+	.w3-ul{list-style-type:none;padding:0;margin:0}
+	.w3-ul li{padding:8px 16px;border-bottom:1px solid #ddd
+
+
+</style>
+
+<script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope)
+{
+    $scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.addItem = function ()
+    {
+        $scope.errortext = "";
+        if (!$scope.addMe) 
+        {
+        	return;
+        }
+        if ($scope.products.indexOf($scope.addMe) == -1) 
+        {
+            $scope.products.push($scope.addMe);
+        } 
+        else 
+        {
+            $scope.errortext = "The item is already in your shopping list.";
+        }
+    }
+
+    $scope.removeItem = function (x) 
+    {
+        $scope.errortext = "";    
+        $scope.products.splice(x, 1);
+    }
+
+});
+</script>
+
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="w3-card-211 w3-margin11" style="max-width:400px;">
+  <header class="w3-container11 w3-light-grey11 w3-padding-1611">
+    <h3>My Shopping List</h3>
+  </header>
+  <ul class="w3-ul">
+    <li ng-repeat="x in products" class="w3-padding-1611">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right11 w3-margin-right11">×</span></li>
+  </ul>
+  <div class="w3-container11 w3-light-grey11 w3-padding-1611">
+    <div class=" w3-margin-top11">
+      <div style="width:83%;">
+        <input placeholder="Add shopping items here" ng-model="addMe" class="w3-input11 w3-border11 w3-padding11">
+      </div>
+      <div style="width:16.66666%;">
+        <button ng-click="addItem()" class="w3-btn11 w3-padding11 w3-green11">Add</button>
+      </div>
+    </div>
+    <p style="color:red">{{errortext}}</p>
+  </div>
+</div>
+
+</body>
+</html>
